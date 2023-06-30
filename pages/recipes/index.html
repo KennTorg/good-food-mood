@@ -4,11 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a wep-app for Good Food Mood">
+    <meta name="author" content="KennTorg">
     <link href="/css/styles.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:;base64,=">
+    <script src="https://kit.fontawesome.com/d3b18d85d7.js" crossorigin="anonymous"></script>
     <script src="/js/index.js" defer></script>
-    <title>GFM | Recipes</title>
+    <script src="/js/hamburger.js" defer></script>
+    <script src="/js/api/recipes.js" defer></script>
+    <title>Good Food Mood | Recipes</title>
 </head>
 <body>
-    <h1>Recipes Page</h1>
+    <header>
+        <video autoplay muted loop>
+            <source src="../../content/vid/pexels-luna-lovegood-4474373-3840x2160-50fps.mp4">
+        </video>
+        <div class="logo">
+            <a href="/">
+                <h1>Good Food Mood</h1>
+            </a>
+        </div>
+        <nav class="links">
+
+            <ul class="nav-menu">
+                <li class="nav-link"><a href="/" class="nav-a">Home</a></li>
+                <li class="nav-link"><a href="/pages/recipes/" class="nav-a">Recipes</a></li>
+                <li class="nav-link"><a href="/pages/about/" class="nav-a">About</a></li>
+                <li class="nav-link"><a href="/pages/contact/" class="nav-a">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <div id="recipeContainer" class="recipe-container"></div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img id="modal-image" src="" alt="Recipe Image">
+                <h2 id="modal-title"></h2>
+                <p id="modal-description"></p>
+            </div>
+        </div>
+
+        <div id="loader" class="loader"></div>
+
+    </main>
+    <footer>
+        <div class="logo">
+            <h1>Good Food Mood</h1>
+        </div>
+        <div class="copyright">
+            <span class="copy">Copyright &copy; KennTorg | Good Food Mood | 2022</span>
+        </div>
+        <div class="icons">
+            <a href="https://www.facebook.com" alt="facebook"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com" alt="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/home" alt="twitter"><i class="fab fa-twitter-square"></i></a>
+        </div>
+    </footer>
 </body>
 </html>
