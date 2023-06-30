@@ -1,6 +1,6 @@
-const url =
+const recipesUrl =
   "https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes";
-const options = {
+const recipeOptions = {
   method: "GET",
   headers: {
     "X-RapidAPI-Key": "9a8ae15c5bmshf98d01efc34253bp1ae145jsn62409f75c5d1",
@@ -10,22 +10,31 @@ const options = {
 
 async function fetchRecipes() {
   try {
-    const response = await fetch(url, options);
+    // ---- Loader ----
+    const loader = document.getElementById("loader");
+    loader.style.display = "block";
+
+    const response = await fetch(recipesUrl, recipeOptions);
     const result = await response.json();
     console.log(result);
 
-    const recipes = result.results; // Assuming the recipes are stored in the 'results' property
+    const recipes = result.results;
     const recipeContainer = document.getElementById("recipeContainer");
+
+    recipeContainer.innerHTML = "";
 
     recipes.forEach((recipe) => {
       const card = createRecipeCard(recipe);
       recipeContainer.appendChild(card);
     });
+
+    loader.style.display = "none";
   } catch (error) {
     console.error(error);
   }
 }
 
+// ---- Recipe cards -----
 function createRecipeCard(recipe) {
   const card = document.createElement("div");
   card.classList.add("recipe-card");
@@ -40,7 +49,7 @@ function createRecipeCard(recipe) {
   card.appendChild(details);
 
   card.addEventListener("click", () => {
-    showRecipeModal(recipe);
+    openModal(recipe);
   });
 
   return card;
@@ -72,26 +81,27 @@ function createDetails(description) {
   return details;
 }
 
-function showRecipeModal(recipe) {
+// --- MODAL ---
+function openModal(recipe) {
   const modal = document.getElementById("modal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalDescription = document.getElementById("modalDescription");
-  const closeModal = document.getElementsByClassName("close")[0];
+  const modalImage = document.getElementById("modal-image");
+  const modalTitle = document.getElementById("modal-title");
+  const modalDescription = document.getElementById("modal-description");
 
+  modalImage.src = recipe.thumbnail_url;
   modalTitle.textContent = recipe.name;
   modalDescription.textContent = recipe.description;
 
   modal.style.display = "block";
 
-  closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
+  const closeButton = document.querySelector(".close");
+  closeButton.addEventListener("click", closeModal);
+}
 
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  });
+function closeModal() {
+  const modal = document.getElementById("modal");
+
+  modal.style.display = "none";
 }
 
 fetchRecipes();
