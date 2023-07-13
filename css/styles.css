@@ -24,7 +24,7 @@ header a {
   color: #000;
 }
 
-header h1 {
+h2 {
   font-family: "Great Vibes", cursive;
 }
 
@@ -37,13 +37,14 @@ video {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  overflow: hidden;
 }
 
-.logo {
+.logo a {
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  color: darkred;
 }
 
 /* ------- Hamburger ------ */
@@ -59,7 +60,7 @@ video {
   width: 30px;
   height: 3px;
   margin: 5px auto;
-  background-color: #fff;
+  background-color: #000;
   transition: 0.4s;
   border-radius: 20%;
 }
@@ -74,6 +75,7 @@ video {
 .links a {
   text-decoration: none;
   color: #fff;
+  font-weight: bold;
 }
 
 .nav-menu {
@@ -92,21 +94,17 @@ video {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: #ddeac1;
   height: 500px;
   margin-top: 100px;
-}
-
-.welcome-container h1 {
-  font-family: "Great Vibes", cursive;
-}
-
-.welcome-container p {
-  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  padding: 20px;
+  overflow: hidden;
 }
 
 .welcome-container h1,
 p {
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
   display: flex;
   justify-content: center;
   color: #0d1010;
@@ -121,8 +119,8 @@ p {
 .inspired-container h2 {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 20px;
-  width: 300px;
 }
 
 /* ------ Image Slider ------- */
@@ -254,11 +252,15 @@ p {
 .about-container {
   display: flex;
   flex-direction: column;
-  width: 800px;
-  height: 100vh;
+  max-width: 800px;
   margin: 0 auto;
   margin-top: 100px;
   margin-bottom: 200px;
+  padding: 10px;
+}
+
+.about-container p {
+  margin-bottom: 10px;
 }
 
 /* ========  CONTACT PAGE ========= */
@@ -272,11 +274,10 @@ p {
 form {
   padding: 2rem;
   background: #c0c0c0;
-  border-radius: 1rem;
   margin-top: 3rem;
-  width: 50%;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 
 .contact-form {
@@ -289,7 +290,7 @@ form {
 /* Form Input */
 
 label input {
-  width: 100%;
+  width: 95%;
   margin-top: 5px;
   padding: 10px;
   font-size: 1em;
@@ -338,6 +339,10 @@ footer {
   height: 300px;
 }
 
+footer a {
+  text-decoration: none;
+}
+
 /* ------- Social Media Icons ------- */
 
 .icons {
@@ -382,6 +387,7 @@ footer {
 }
 
 /* ========================= MEDIA QUERIES ====================== */
+/* ------ TABLETS ------ */
 @media screen and (max-width: 768px) {
   .logo {
     font-size: 20px;
@@ -408,15 +414,16 @@ footer {
   }
 
   .nav-menu {
-    position: fixed;
-    left: -100%;
-    top: 150px;
+    position: absolute;
+    left: -120%;
+    top: 125px;
     gap: 0;
     flex-direction: column;
     background-color: #171717;
     text-align: center;
     transition: 0.3s;
     padding: 10px;
+    width: 200px;
   }
 
   .links a {
@@ -429,5 +436,69 @@ footer {
 
   .nav-menu.active {
     left: 0;
+  }
+
+  .recipe-container {
+    margin: 10px;
+  }
+
+  .welcome-container {
+    height: auto;
+  }
+}
+
+/* ------ MOBILE ----- */
+@media screen and (max-width: 480px) {
+  .nav-menu {
+    display: none;
+    top: 200px;
+  }
+
+  .nav-menu {
+    display: block;
+    width: 100%;
+  }
+
+  .inspired-container {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-slider img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .recipe-container {
+    margin: 100px 0;
+  }
+
+  .about-container {
+    margin: 20px 0 40px;
+  }
+
+  form {
+    max-width: 100%;
+  }
+
+  header h1 {
+    padding: 15px;
+  }
+
+  .welcome-container {
+    height: auto;
+    margin-top: 50px;
+  }
+
+  footer {
+    height: auto;
+    margin-top: 50px;
+  }
+
+  .welcome-container h1,
+  .welcome-container p,
+  footer h1 {
+    text-align: center;
   }
 }
