@@ -342,11 +342,33 @@ footer {
   margin-top: 5rem;
   gap: 2rem;
   background-color: #ddeac1;
-  height: 300px;
 }
 
 footer a {
   text-decoration: none;
+}
+
+.sign-up form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: -50px;
+  background-color: #ddeac1;
+}
+
+.signup-btn {
+  background-color: darkred;
+  width: 100px;
+  padding: 0.5rem;
+  color: white;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.signup-btn:hover {
+  opacity: 80%;
 }
 
 /* ------- Social Media Icons ------- */

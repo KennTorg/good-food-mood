@@ -15,6 +15,8 @@
     <link rel="icon" href="data:;base64,=">
     <script src="https://kit.fontawesome.com/d3b18d85d7.js" crossorigin="anonymous"></script>
     <script src="/js/hamburger.js" defer></script>
+    <script src="/js/signup.js" defer></script>
+
     <title>Good Food Mood | About</title>
 </head>
 <body>
@@ -73,6 +75,18 @@
             <a href="/">
                 <h1>Good Food Mood</h1>
             </a>
+        </div>
+        <div class="sign-up">
+            <form id="signupForm" class="signupForm">
+                <label>
+                    Sign up for weekly newsletter!
+                    <input name="email" id="email" />
+                </label>
+                <div class="form-error" id="emailError">
+                    must have a value and be formatted like an email address
+                </div>
+                <button class="signup-btn">Submit</button>
+            </form>
         </div>
         <div class="copyright">
             <span class="copy">Copyright &copy; KennTorg | Good Food Mood | 2022</span>

@@ -17,6 +17,7 @@
     <script src="/js/index.js" defer></script>
     <script src="/js/hamburger.js" defer></script>
     <script src="/js/api/food.js" defer></script>
+    <script src="/js/signup.js" defer></script>
 
     <title>Good Food Mood</title>
 </head>
@@ -67,6 +68,20 @@
                 <h1>Good Food Mood</h1>
             </a>
         </div>
+
+        <div class="sign-up">
+            <form id="signupForm" class="signupForm">
+                <label>
+                    Sign up for weekly newsletter!
+                    <input name="email" id="email" />
+                </label>
+                <div class="form-error" id="emailError">
+                    must have a value and be formatted like an email address
+                </div>
+                <button class="signup-btn">Submit</button>
+            </form>
+        </div>
+
         <div class="copyright">
             <span class="copy">Copyright &copy; KennTorg | Good Food Mood | 2022</span>
         </div>
